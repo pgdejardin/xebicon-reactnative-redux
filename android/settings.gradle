@@ -1,0 +1,3 @@
+rootProject.name = 'myXebiconSlot'
+
+include ':app'
