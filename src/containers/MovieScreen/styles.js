@@ -26,9 +26,9 @@ export default StyleSheet.create({
   mpaaWrapper: {
     alignSelf: 'flex-start',
     borderColor: 'black',
-    borderWidth: 1,
-    paddingHorizontal: 3,
-    marginVertical: 5,
+    // borderWidth: 1,
+    // paddingHorizontal: 3,
+    marginVertical: 2,
   },
   mpaaText: {
     fontFamily: 'Palatino',
@@ -56,4 +56,11 @@ export default StyleSheet.create({
   castActor: {
     marginLeft: 2,
   },
+  spinnerContainer: {
+    paddingTop: 300,
+  },
+  tagline: {
+    marginBottom: 10,
+    fontSize: 16,
+  }
 });

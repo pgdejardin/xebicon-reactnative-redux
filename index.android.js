@@ -6,7 +6,18 @@
 
 import React from 'react';
 import { AppRegistry } from 'react-native';
+import { Provider } from 'react-redux';
+import { fromJS } from 'immutable';
+import configureStore from './src/store';
+import App from './src/containers/App';
 
-import Root from './src';
+const initialState = fromJS({});
+const store = configureStore(initialState);
 
-AppRegistry.registerComponent('myXebiconSlot', () => Root);
+const Movies = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+AppRegistry.registerComponent('myXebiconSlot', () => Movies);
