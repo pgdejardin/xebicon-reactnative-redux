@@ -1,5 +1,9 @@
 # Xebicon 2016 - React Native et Redux
 
+This is the application made and used for the Xebicon'2016 slot "React Native et Redux, une complémentarité hors du commun".
+
+This application requires an API key on [The movie DB](https://www.themoviedb.org/documentation/api). You can create an account and get a key.
+
 ## Development
 
 ### Install modules
