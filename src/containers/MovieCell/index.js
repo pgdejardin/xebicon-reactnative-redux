@@ -7,16 +7,26 @@ import {
   TouchableNativeFeedback,
   View,
 } from 'react-native';
+import moment from 'moment';
 
 import { getStyleFromScore, getImageSource, getTextFromScore } from '../../utils';
 
 import styles from './styles';
 
 class MovieCell extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      release_date: moment(this.props.movie.release_date),
+    }
+  }
+  
   render() {
-    const criticsScore = this.props.movie.ratings.critics_score;
+    const { movie } = this.props;
+    const criticsScore = Math.round(movie.popularity);
+    const year = movie.release_date ? movie.release_date.substring(0, 4) : 'N/A';
     const TouchableElement = Platform.OS === 'android' ? TouchableNativeFeedback : TouchableHighlight;
-
     return (
       <View>
         <TouchableElement
@@ -25,18 +35,18 @@ class MovieCell extends React.Component {
           onHideUnderlay={this.props.onUnhighlight}>
           <View style={styles.row}>
             <Image
-              source={getImageSource(this.props.movie, 'det')}
+              source={getImageSource(movie)}
               style={styles.cellImage}
             />
             <View style={styles.textContainer}>
               <Text style={styles.movieTitle} numberOfLines={2}>
-                {this.props.movie.title}
+                {movie.title}
               </Text>
               <Text style={styles.movieYear} numberOfLines={1}>
-                {this.props.movie.year}
+                {year}
                 {' '}&bull;{' '}
                 <Text style={getStyleFromScore(criticsScore)}>
-                  Critics {getTextFromScore(criticsScore)}
+                  {getTextFromScore(criticsScore)}
                 </Text>
               </Text>
             </View>

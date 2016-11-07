@@ -5,27 +5,19 @@
  */
 
 import React from 'react';
-import { AppRegistry, View, NavigatorIOS, StyleSheet } from 'react-native';
+import { AppRegistry } from 'react-native';
+import { Provider } from 'react-redux';
+import { fromJS } from 'immutable';
+import configureStore from './src/store';
+import App from './src/containers/App';
 
-import SearchScreen from './src/containers/SearchScreen';
+const initialState = fromJS({});
+const store = configureStore(initialState);
 
-const App = () => (
-  <View style={styles.container}>
-    <NavigatorIOS
-      style={styles.container}
-      initialRoute={{
-        title: 'Movies',
-        component: SearchScreen,
-      }}
-    />
-  </View>
+const Movies = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
 );
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-  },
-});
-
-AppRegistry.registerComponent('myXebiconSlot', () => App);
+AppRegistry.registerComponent('myXebiconSlot', () => Movies);

@@ -6,11 +6,11 @@ class Cast extends React.Component {
     if (!this.props.actors) {
       return null;
     }
-
+    const { cast } = this.props.actors;
     return (
       <View>
         <Text style={this.props.styles.castTitle}>Actors</Text>
-        {this.props.actors.map(actor =>
+        {cast.map(actor =>
           <Text key={actor.name} style={this.props.styles.castActor}>
             &bull; {actor.name}
           </Text>
@@ -21,7 +21,7 @@ class Cast extends React.Component {
 }
 
 Cast.propTypes = {
-  actors: React.PropTypes.array,
+  actors: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.bool]),
   styles: React.PropTypes.object.isRequired,
 };
 

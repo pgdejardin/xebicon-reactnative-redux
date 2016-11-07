@@ -6,13 +6,13 @@ export default StyleSheet.create({
   },
   movieTitle: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: '500',
     marginBottom: 2,
   },
   movieYear: {
     color: '#999999',
-    fontSize: 12,
+    fontSize: 14,
   },
   row: {
     alignItems: 'center',
